@@ -394,17 +394,35 @@ git push origin feature/contact
 
 ## Step 13: View Commit History
 
-Each developer views their commit history:
+Each developer views their own branch commit history:
 
 ```bash
 git log --oneline
 ```
 
-View all branches graphically:
+Expected output (example for Developer 1):
+```
+a1b2c3d Add homepage with navigation and content
+f4e5d6a Initial project structure with CSS and README
+```
+
+View all branches with a visual graph (shows the full team's work):
 
 ```bash
 git log --oneline --graph --all
 ```
+
+Expected output:
+```
+* a1b2c3d (feature/homepage) Add homepage with navigation and content
+| * b2c3d4e (origin/feature/about) Add about page with team information
+|/
+| * c3d4e5f (origin/feature/contact) Add contact page with team details
+|/
+* f4e5d6a (origin/main, main) Initial project structure with CSS and README
+```
+
+> 💡 The first command shows only your current branch. The second command shows **all branches** with a tree-like graph showing how they diverge from main.
 
 ---
 
