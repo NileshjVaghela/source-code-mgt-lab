@@ -29,7 +29,38 @@ Developer 1 creates the repository on GitHub.
 
 ---
 
-## Step 3: Clone the Repository (All Developers)
+## Step 3: Generate a Personal Access Token (All Developers)
+
+GitHub does not allow password authentication over HTTPS. Each developer must create a **Personal Access Token (PAT)** to push code.
+
+📖 **Official Guide:** https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic
+
+**Steps to create your token:**
+
+1. Go to GitHub → Click your **profile picture** (top-right) → **Settings**
+2. Scroll down the left sidebar → Click **Developer settings**
+3. Click **Personal access tokens** → **Tokens (classic)**
+4. Click **Generate new token** → **Generate new token (classic)**
+5. Configure:
+   - **Note:** `team-website-workshop`
+   - **Expiration:** 30 days
+   - **Scopes:** Check **repo** (full control of private repositories)
+6. Click **Generate token**
+7. **Copy the token immediately** — you cannot see it again!
+
+> ⚠️ **Important:** When Git prompts for a password during `git push` or `git clone`, paste this **token** instead of your GitHub password.
+
+**Cache your token (optional, avoids re-entering every time):**
+
+```bash
+git config --global credential.helper 'cache --timeout=3600'
+```
+
+This stores your credentials in memory for 1 hour.
+
+---
+
+## Step 4: Clone the Repository (All Developers)
 
 Each developer runs on their local machine:
 
@@ -37,6 +68,10 @@ Each developer runs on their local machine:
 git clone https://github.com/<developer1-username>/team-website.git
 cd team-website
 ```
+
+When prompted:
+- **Username:** Your GitHub username
+- **Password:** Paste your **Personal Access Token** (not your GitHub password)
 
 Verify the remote:
 
@@ -52,7 +87,7 @@ origin  https://github.com/<developer1-username>/team-website.git (push)
 
 ---
 
-## Step 4: Set Up Git Identity (All Developers)
+## Step 5: Set Up Git Identity (All Developers)
 
 Each developer configures their identity:
 
@@ -63,7 +98,7 @@ git config user.email "your-email@example.com"
 
 ---
 
-## Step 5: Create Project Structure on Main (Developer 1)
+## Step 6: Create Project Structure on Main (Developer 1)
 
 Developer 1 creates the base project structure:
 
@@ -162,7 +197,7 @@ git push origin main
 
 ---
 
-## Step 6: Pull Latest Changes (Developer 2 and Developer 3)
+## Step 7: Pull Latest Changes (Developer 2 and Developer 3)
 
 Before creating branches, pull the latest:
 
@@ -172,7 +207,7 @@ git pull origin main
 
 ---
 
-## Step 7: Create Feature Branches (Each Developer)
+## Step 8: Create Feature Branches (Each Developer)
 
 **Developer 1:**
 ```bash
@@ -199,7 +234,7 @@ The asterisk (*) shows your current branch.
 
 ---
 
-## Step 8: Developer 1 - Create Homepage
+## Step 9: Developer 1 - Create Homepage
 
 Create `index.html`:
 
@@ -244,7 +279,7 @@ git push origin feature/homepage
 
 ---
 
-## Step 9: Developer 2 - Create About Page
+## Step 10: Developer 2 - Create About Page
 
 Create `about.html`:
 
@@ -296,7 +331,7 @@ git push origin feature/about
 
 ---
 
-## Step 10: Developer 3 - Create Contact Page
+## Step 11: Developer 3 - Create Contact Page
 
 Create `contact.html`:
 
@@ -346,7 +381,7 @@ git push origin feature/contact
 
 ---
 
-## Step 11: Verify Branches on GitHub (All Developers)
+## Step 12: Verify Branches on GitHub (All Developers)
 
 1. Go to the repository on GitHub
 2. Click the branch dropdown (shows "main")
@@ -357,7 +392,7 @@ git push origin feature/contact
 
 ---
 
-## Step 12: View Commit History
+## Step 13: View Commit History
 
 Each developer views their commit history:
 
