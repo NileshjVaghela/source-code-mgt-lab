@@ -400,11 +400,13 @@ Each developer views their own branch commit history:
 git log --oneline
 ```
 
-Expected output (example for Developer 1):
+Expected output (example for Developer 1 on `feature/homepage`):
 ```
 a1b2c3d Add homepage with navigation and content
 f4e5d6a Initial project structure with CSS and README
 ```
+
+This shows only the commits on your **current branch** in a flat list.
 
 View all branches with a visual graph (shows the full team's work):
 
@@ -414,15 +416,17 @@ git log --oneline --graph --all
 
 Expected output:
 ```
-* a1b2c3d (feature/homepage) Add homepage with navigation and content
-| * b2c3d4e (origin/feature/about) Add about page with team information
+* d4e5f6a (main) Initial project structure with CSS and README
+| * a1b2c3d (feature/homepage) Add homepage with navigation and content
 |/
-| * c3d4e5f (origin/feature/contact) Add contact page with team details
+| * b2c3d4e (feature/about) Add about page with team information
 |/
-* f4e5d6a (origin/main, main) Initial project structure with CSS and README
+| * c3d4e5f (feature/contact) Add contact page with team details
+|/
+* 463cc94 Initial commit
 ```
 
-> 💡 The first command shows only your current branch. The second command shows **all branches** with a tree-like graph showing how they diverge from main.
+> 💡 Notice the `|/` lines — they show where each developer's branch **diverges** from main. The first command only shows your branch; the second command shows **all branches** with a tree structure showing how they split apart.
 
 ---
 
